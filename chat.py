@@ -119,23 +119,23 @@ def respond(input, samples): # generation function
                 # remove any human response
                 out =  out[0].partition('<human>')
                 # if the bot has anything left afterwards, the endOfText token is put to use
-                output_text =  out[0].rpartition('<endOftext>')
+                output_text =  out[0].rpartition('<eot>')
                 output_text = out[0] + out[1]
                 # label removing
                 output_text = output_text.replace('<human>',' ')
                 output_text = output_text.replace('<bot>',' ')
-                output_text = output_text.replace('<endOfText>',' ')
+                output_text = output_text.replace('<eot>',' ')
                 return output_text
 
 # chat loop
 while True:
     # get input from user
     start_input = input('User: ')
-    start = '<human>'+start_input+'<endOfText><bot>'
+    start = '<human>'+start_input+'<eot><bot>'
     context=context+start
     
     out = respond(context, num_samples)
   
-    context=context+out+'<endOfText><system>You are an AI assistant named UNAGAMI, designed to help users<endOfText>'
+    context=context+out+'<eot>'
   
     print('Bot: '+ out)
