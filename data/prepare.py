@@ -58,13 +58,13 @@ for filename in os.listdir('output'): #blocks are chosen randomly from the text,
 
 # data loader
 dataset = ''
-data_dir = os.path.join('/content/unagami/data', dataset)
+data_dir = os.path.join('/content/curriculum-experiment/data', dataset)
 total_train_data=[10] # just keeping arrays not empty
 total_val_data=[10]
 total_train_data=np.array(total_train_data, dtype=np.uint16)
 total_val_data=np.array(total_val_data, dtype=np.uint16)
-total_train_data.tofile('/content/unagami/data/traintotal.bin')
-total_val_data.tofile('/content/unagami/data/valtotal.bin')
+total_train_data.tofile('/content/curriculum-experiment/data/traintotal.bin')
+total_val_data.tofile('/content/curriculum-experiment/data/valtotal.bin')
 total_train_data=np.memmap(os.path.join(data_dir, 'traintotal.bin'), dtype=np.uint16, mode='r')
 total_val_data=np.memmap(os.path.join(data_dir, 'valtotal.bin'), dtype=np.uint16, mode='r')
 
