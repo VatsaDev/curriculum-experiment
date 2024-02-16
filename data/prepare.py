@@ -26,7 +26,7 @@ def download_file(url, output_dir):
   else:
     print('Error downloading file:', response.status_code)
 
-download_file('https://huggingface.co/datasets/VatsaDev/oh2.5-text/resolve/main/oh2.txt?download=true', 'output')
+download_file('https://huggingface.co/datasets/VatsaDev/oh2.5-text/resolve/main/oh1.txt?download=true', 'output')
 
 train_len = 0
 val_len = 0
@@ -35,7 +35,7 @@ val_no = 0
 for filename in os.listdir('output'): #blocks are chosen randomly from the text, more of a seamless train val split
   if filename.endswith('.txt'):
     train_or_val = random.randint(0, 9)
-    if train_or_val <= 8:
+    if train_or_val <= 6:
       with open(f'output/{filename}', 'r') as f:
         data = f.read()
       train_ids = enc.encode_ordinary(data)
@@ -45,7 +45,7 @@ for filename in os.listdir('output'): #blocks are chosen randomly from the text,
       train_ids.tofile(os.path.join(os.path.dirname(__file__), f'train{train_no}.bin'))
       print(f"train has {train_len} tokens")
       train_ids = []
-    if train_or_val > 8:
+    if train_or_val > 6:
       with open(f'output/{filename}', 'r') as f:
         data = f.read()
       val_ids = enc.encode_ordinary(data)
