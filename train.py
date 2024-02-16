@@ -136,8 +136,8 @@ if hf_binaries == True:
     print("got binaries, batching")
 else:
     print("Using regular binaries...")
-    train_data = np.memmap(os.path.join(data_dir, 'traintotal.bin'), dtype=np.uint16, mode='r')
-    val_data = np.memmap(os.path.join(data_dir, 'valtotal.bin'), dtype=np.uint16, mode='r')
+    train_data = np.memmap('traintotal.bin', dtype=np.uint16, mode='r')
+    val_data = np.memmap('valtotal.bin', dtype=np.uint16, mode='r')
 
 def get_batch(split): # change to use train data and val data from concat_bins
     data = train_data if split == 'train' else val_data
