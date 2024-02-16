@@ -58,7 +58,7 @@ for filename in os.listdir('output'): #blocks are chosen randomly from the text,
 
 # data loader
 dataset = ''
-data_dir = os.path.join('data', dataset)
+data_dir = os.path.join('/content/unagami/data', dataset)
 total_train_data=[10] # just keeping arrays not empty
 total_val_data=[10]
 total_train_data=np.array(total_train_data, dtype=np.uint16)
