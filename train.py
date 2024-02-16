@@ -129,8 +129,8 @@ data_dir = os.path.join('data', dataset)
 
 if hf_binaries == True:
     print("Using HuggingFace binaries...")
-    download_file('https://huggingface.co/VatsaDev/unagami/resolve/main/valTotal.bin','valtotal.bin')
-    download_file('https://huggingface.co/VatsaDev/unagami/resolve/main/trainTotal.bin', 'traintotal.bin')
+    download_file('https://huggingface.co/datasets/VatsaDev/oh2.5-text/resolve/main/valtotal.bin?download=true','valtotal.bin')
+    download_file('https://huggingface.co/datasets/VatsaDev/oh2.5-text/resolve/main/traintotal.bin?download=true', 'traintotal.bin')
     train_data = np.memmap('traintotal.bin', dtype=np.uint16, mode='r')
     val_data = np.memmap('valtotal.bin', dtype=np.uint16, mode='r')
     print("got binaries, batching")
