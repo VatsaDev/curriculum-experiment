@@ -79,14 +79,14 @@ def concat_bins():
             val_data = np.memmap(os.path.join(data_dir, filename), dtype=np.uint16, mode='r')
             total_val_data = np.concatenate([total_val_data, val_data])
             del val_data
-            total_val_data.tofile('/content/unagami/data/valtotal.bin')
+            total_val_data.tofile('/content/curriculum-experiment/data/valtotal.bin')
         else:
             # Train files
             print(f"concat {filename}")
             train_data = np.memmap(os.path.join(data_dir, filename), dtype=np.uint16, mode='r')
             total_train_data = np.concatenate([total_train_data, train_data])
             del train_data
-            total_train_data.tofile('/content/unagami/data/traintotal.bin')
+            total_train_data.tofile('/content/curriculum-experiment/data/traintotal.bin')
     print("concat over")
 
 concat_bins()
