@@ -18,6 +18,9 @@ b. train 2 models
 
 c. check loss plots, perf. etc?
 
+**Paper differences**
+ - not really rigorous experimentation, and I dont use the 19 Qs + blooms taxonomy, instead sorting the dataset by topic and then ranking from easy to hard
+
 ## citations
 ```
 @misc{lee2024instruction,
